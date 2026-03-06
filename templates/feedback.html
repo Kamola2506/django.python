@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+{% for f in feedback %}
+<p><strong>Name:</strong>{{ f.name }}</p>
+<p><strong>Email:</strong>{{ f.email }}</p>
+<p><strong>Question:</strong>{{ f.question }}</p>
+
+
+    <p><strong>Answer:</strong>{{ f.answer }}</p>
+  <hr>
+{% empty %}
+  <p>No answers yet.</p>
+
+{% endfor %}
+</body>
+</html>
